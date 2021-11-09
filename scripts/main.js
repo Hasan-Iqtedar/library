@@ -10,7 +10,6 @@ let inputAuthor = document.querySelector('#author');
 let inputPages = document.querySelector('#pages');
 let inputRead = document.querySelector('#read');
 
-
 window.addEventListener('load', displayData);
 window.addEventListener('click', (e) => {
     
@@ -21,6 +20,8 @@ window.addEventListener('click', (e) => {
 
 newButton.addEventListener('click', (e) => openForm(e));
 submitButton.addEventListener('click', (e) => submitForm(e));
+
+addBookToLibrary(new Book('The Hobbit', 'JRR Tolkien', '295', true));
 
 function Book(title, author, pages, hasRead = false) {
     this.title = title;
@@ -65,8 +66,6 @@ function displayData() {
     });
 }
 
-addBookToLibrary(new Book('The Hobbit', 'JRR Tolkien', '295', true));
-
 function openForm(e) {
     modal.style.display = 'block'
 }
@@ -89,8 +88,6 @@ function submitForm(e) {
     inputPages.value = '';
     inputRead.checked = false;
     modal.style.display = 'none';
-
-
 }
 
 function removeBook(e) {
@@ -112,5 +109,4 @@ function toggleReadStatus(e) {
         books[index].hasRead = true;
         e.target.textContent = 'Read'
     }
-
 }
