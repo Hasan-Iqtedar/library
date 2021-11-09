@@ -12,18 +12,33 @@
 
 <body>
 
-    <h1 id='title'>Library</h1>
-    
-    <table id='table'>
+    <h1>Library</h1>
 
-        <tr>
-            <th>title</th>
-            <th>author</th>
-            <th>pages</th>
-            <th>Read</th>
-        </tr>
+    <div class='modal'>
+        <div class='modal-content'>
+            <input id='title' type='text' placeholder="Title" name='title' value=''>
+            <input id='author' type='text' placeholder="Author" name='author' value=''>
+            <input id='pages' type='text' placeholder="Pages" name='pages' value='' >
+            <div class='checkbox-container'>
+                <label>Read?</label>
+                <input id='read' type="checkbox" name='Read' value="true">
+            </div>
+            <button id='submit-button'>Add Book</button>
+        </div>
+    </div>
 
-    </table>
+
+    <div id='container'>
+        <button id="new-button">New</button>
+        <table id='table'>
+            <tr>
+                <th>title</th>
+                <th>author</th>
+                <th>pages</th>
+                <th>Read</th>
+            </tr>
+        </table>
+    </div>
 
 </body>
 
