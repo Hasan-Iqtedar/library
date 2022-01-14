@@ -1,3 +1,14 @@
+class Book {
+
+    constructor(title, author, pages, hasRead = false) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.hasRead = hasRead;
+    }
+
+}
+
 let books = [];
 let table = document.querySelector('#table');
 let modal = document.querySelector('.modal');
@@ -12,8 +23,8 @@ let inputRead = document.querySelector('#read');
 
 window.addEventListener('load', displayData);
 window.addEventListener('click', (e) => {
-    
-    if(e.target == modal){
+
+    if (e.target == modal) {
         modal.style.display = 'none';
     }
 })
@@ -22,13 +33,6 @@ newButton.addEventListener('click', (e) => openForm(e));
 submitButton.addEventListener('click', (e) => submitForm(e));
 
 addBookToLibrary(new Book('The Hobbit', 'JRR Tolkien', '295', true));
-
-function Book(title, author, pages, hasRead = false) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.hasRead = hasRead;
-}
 
 function addBookToLibrary(book) {
     books.push(book);
@@ -73,15 +77,15 @@ function openForm(e) {
 function submitForm(e) {
     let modal = document.querySelector('.modal');
     let book = new Book(inputTitle.value, inputAuthor.value, inputPages.value, inputRead.checked);
-    
-    if( !(Number(inputPages.value)) || inputPages.value.length === 0 ){
+
+    if (!(Number(inputPages.value)) || inputPages.value.length === 0) {
         alert("Please add valid data");
     }
 
-    else if (inputTitle.value && inputAuthor.value){
+    else if (inputTitle.value && inputAuthor.value) {
         addBookToLibrary(book);
-        appendRowToDisplay(book);    
-    }   
+        appendRowToDisplay(book);
+    }
 
     inputTitle.value = '';
     inputAuthor.value = '';
